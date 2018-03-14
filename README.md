@@ -1,2 +1,2 @@
-# SixFourThree.Sezzle
+# SezzleSharp
 A Sezzle C# SDK
