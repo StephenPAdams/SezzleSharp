@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SixFourThree.SezzleSharp", "SixFourThree.SezzleSharp\SixFourThree.SezzleSharp.csproj", "{921DC50A-E63B-49E7-A365-E43867AA3DEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SixFourThree.SezzleSharp.Tests", "SixFourThree.SezzleSharp.Tests\SixFourThree.SezzleSharp.Tests.csproj", "{42A2EF1E-0850-46D7-895F-4FC70ACF1D1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{921DC50A-E63B-49E7-A365-E43867AA3DEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921DC50A-E63B-49E7-A365-E43867AA3DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921DC50A-E63B-49E7-A365-E43867AA3DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921DC50A-E63B-49E7-A365-E43867AA3DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42A2EF1E-0850-46D7-895F-4FC70ACF1D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42A2EF1E-0850-46D7-895F-4FC70ACF1D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42A2EF1E-0850-46D7-895F-4FC70ACF1D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42A2EF1E-0850-46D7-895F-4FC70ACF1D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44D886B2-BB1E-4635-B92D-B28E09A2C9CB}
+	EndGlobalSection
+EndGlobal
