@@ -7,8 +7,16 @@ namespace SixFourThree.SezzleSharp.Models
 {
     public class Price
     {
+        /// <summary>
+        /// Amount in cents
+        /// </summary>
         [JsonProperty("amount_in_cents")]
-        public Int64 AmountInCents { get; set; }
-        public String Currency { get; set; }
+        public long AmountInCents { get; set; }
+
+        /// <summary>
+        /// Currency code
+        /// </summary>
+        [JsonProperty("currency")]
+        public string Currency { get; set; }
     }
 }
