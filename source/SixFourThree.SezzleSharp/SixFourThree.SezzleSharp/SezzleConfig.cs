@@ -7,7 +7,8 @@ namespace SixFourThree.SezzleSharp
     public class SezzleConfig
     {
         private const string ApiUrlDefault = "https://gateway.sezzle.com/v1/";
-        
+        private const string SandboxApiUrlDefault = "https://sandbox.gateway.sezzle.com/v1/";
+       
         /// <summary>
         /// Base API URL
         /// </summary>
@@ -24,21 +25,13 @@ namespace SixFourThree.SezzleSharp
         public string ApiPrivateKey { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SezzleConfig"/> class.
+        /// Whether or not to use the sandbox API
         /// </summary>
-        public SezzleConfig(string apiPublicKey, string apiPrivateKey) : this(apiPublicKey, apiPrivateKey, ApiUrlDefault)
+        public bool UseSandbox { get; set; }
+        
+        public SezzleConfig(string apiPublicKey, string apiPrivateKey, bool useSandbox = false)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SezzleConfig"/> class.
-        /// </summary>
-        /// <param name="apiUri">The API URI.</param>
-        /// <param name="apiPublicKey">Scoped API public key</param>
-        /// <param name="apiPrivateKey">Scoped API private key</param>
-        public SezzleConfig(string apiPublicKey, string apiPrivateKey, string apiUrl)
-        {
-            ApiUrl = apiUrl;
+            ApiUrl = useSandbox ? SandboxApiUrlDefault : ApiUrlDefault;
             ApiPublicKey = apiPublicKey;
             ApiPrivateKey = apiPrivateKey;
         }
