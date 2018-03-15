@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json.Serialization;
 
 namespace SixFourThree.SezzleSharp
 {
@@ -25,15 +26,45 @@ namespace SixFourThree.SezzleSharp
         public string ApiPrivateKey { get; set; }
 
         /// <summary>
+        /// The URL we should redirect the customer to in the case of a cancellation
+        /// </summary>
+        /// <example>
+        ///     https://yourdomain.com/checkout/cancel
+        /// </example>
+        public string CheckoutCancelUrl { get; set; }
+
+        /// <summary>
+        /// The URL we should redirect to in the case of a successful checkout
+        /// </summary>
+        /// <example>
+        ///     https://yourdomain.com/checkout/complete
+        /// </example>
+        public string CheckoutCompleteUrl { get; set; }
+
+        /// <summary>
+        /// A URL for Sezzle to send our webhooks to.
+        /// </summary>
+        /// <example>
+        ///     https://yourdomain.com/order/webhook
+        /// </example>
+        public string WebhookUrl { get; set; }
+
+
+        /// <summary>
         /// Whether or not to use the sandbox API
         /// </summary>
         public bool UseSandbox { get; set; }
-        
+
+        public static DefaultContractResolver ContractResolver = new DefaultContractResolver
+        {
+            NamingStrategy = new SnakeCaseNamingStrategy()
+        };
+
         public SezzleConfig(string apiPublicKey, string apiPrivateKey, bool useSandbox = false)
         {
             ApiUrl = useSandbox ? SandboxApiUrlDefault : ApiUrlDefault;
             ApiPublicKey = apiPublicKey;
-            ApiPrivateKey = apiPrivateKey;
+            ApiPrivateKey = apiPrivateKey;            
         }
     }
 }

@@ -10,13 +10,11 @@ namespace SixFourThree.SezzleSharp.Models
         /// <summary>
         /// Amount in cents
         /// </summary>
-        [JsonProperty("amount_in_cents")]
         public long AmountInCents { get; set; }
 
         /// <summary>
         /// Currency code
         /// </summary>
-        [JsonProperty("currency")]
         public string Currency { get; set; }
     }
 }

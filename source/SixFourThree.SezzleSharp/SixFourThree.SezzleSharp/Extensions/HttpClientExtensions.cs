@@ -24,7 +24,11 @@ namespace SixFourThree.SezzleSharp.Extensions
             }
 
             string resultData = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<T>(resultData);
+            var result = JsonConvert.DeserializeObject<T>(resultData, new JsonSerializerSettings
+            {
+                ContractResolver = SezzleConfig.ContractResolver,
+                Formatting = Formatting.Indented
+            });
 
             var endpointResponse = result as Response;
 

@@ -10,13 +10,11 @@ namespace SixFourThree.SezzleSharp.Models
         /// <summary>
         /// Description of the price
         /// </summary>
-        [JsonProperty("name")]
         public string Name { get; set; }
 
         /// <summary>
         /// Amount
         /// </summary>
-        [JsonProperty("amount")]
         public Price Amount { get; set; }
     }
 }

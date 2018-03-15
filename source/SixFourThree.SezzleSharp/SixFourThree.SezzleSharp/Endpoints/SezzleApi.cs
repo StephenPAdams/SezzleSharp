@@ -18,13 +18,8 @@ namespace SixFourThree.SezzleSharp.Endpoints
         public AuthResponse AuthResponse { get; private set; }
 
         protected HttpClient Client { get; private set; }
-
-        public bool EnforceSignedRequests { get; set; }
-
-        internal SezzleApi(string endpoint, SezzleConfig sezzleConfig) : this(endpoint, sezzleConfig, null)
-        {
-
-        }
+        
+        internal SezzleApi(string endpoint, SezzleConfig sezzleConfig) : this(endpoint, sezzleConfig, null) { }
         
         protected SezzleApi(string endpoint, SezzleConfig sezzleConfig, AuthResponse authResponse)
         {
