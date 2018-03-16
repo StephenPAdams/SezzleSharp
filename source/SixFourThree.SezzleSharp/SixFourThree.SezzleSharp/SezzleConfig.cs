@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 namespace SixFourThree.SezzleSharp
@@ -55,9 +56,16 @@ namespace SixFourThree.SezzleSharp
         /// </summary>
         public bool UseSandbox { get; set; }
 
-        public static DefaultContractResolver ContractResolver = new DefaultContractResolver
+        /// <summary>
+        /// Default serializer settings
+        /// </summary>
+        public static JsonSerializerSettings DefaultSerializerSettings = new JsonSerializerSettings
         {
-            NamingStrategy = new SnakeCaseNamingStrategy()
+            ContractResolver = new DefaultContractResolver
+            {
+                NamingStrategy = new SnakeCaseNamingStrategy()
+            },
+            Formatting = Formatting.Indented
         };
 
         public SezzleConfig(string apiPublicKey, string apiPrivateKey, bool useSandbox = false)

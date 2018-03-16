@@ -36,12 +36,8 @@ namespace SixFourThree.SezzleSharp.Endpoints
 
             var request = Request("", HttpMethod.Post);
 
-            // TODO: Abstract the string payload c onvert into StringContent to an extension method
-            var stringPayload = JsonConvert.SerializeObject(checkout, new JsonSerializerSettings
-            {
-                ContractResolver = SezzleConfig.ContractResolver,
-                Formatting = Formatting.Indented
-            });
+            // TODO: Abstract the string payload convert into StringContent to an extension method
+            var stringPayload = JsonConvert.SerializeObject(checkout, SezzleConfig.DefaultSerializerSettings);
 
             var httpContent = new StringContent(stringPayload, Encoding.UTF8, "application/json");
 
@@ -74,7 +70,7 @@ namespace SixFourThree.SezzleSharp.Endpoints
 
             Ensure.ArgumentNotNullOrEmptyString(orderReferenceId, nameof(orderReferenceId));
 
-            var request = Request("{order-reference-id}/complete", HttpMethod.Delete);
+            var request = Request("{order-reference-id}/complete", HttpMethod.Post);
             request.AddUrlSegment("order-reference-id", orderReferenceId);
 
             return Client.ExecuteAsync<CheckoutCompleteResponse>(request);
