@@ -56,7 +56,7 @@ namespace SixFourThree.SezzleSharp.Endpoints
         {
             var now = DateTime.UtcNow;
 
-            if (AuthResponse != null && AuthResponse.ExpirationDate >= now)
+            if (AuthResponse != null && AuthResponse.ExpirationDate < now)
             {
                 throw new InvalidOperationException("Token is expired");
             }

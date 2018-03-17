@@ -7,7 +7,7 @@ namespace SixFourThree.SezzleSharp.Models.Responses
     /// <summary>
     /// Response Base class
     /// </summary>
-    public abstract class Response
+    public abstract class Response : ErrorResponse
     {
         // TODO: See if Sezzle supports rate limit metadata
 

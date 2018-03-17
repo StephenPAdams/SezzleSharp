@@ -10,31 +10,37 @@ namespace SixFourThree.SezzleSharp.Models
         /// <summary>
         /// The amount of the checkout
         /// </summary>
+        /// <remarks>Required. Greater than 0.</remarks>
         public long AmountInCents { get; set; }
 
         /// <summary>
         /// The currency code of the checkout
         /// </summary>
+        /// <remarks>Required</remarks>
         public string CurrencyCode { get; set; }
 
         /// <summary>
         /// A user-facing description for this checkout
         /// </summary>
+        /// <remarks>Required</remarks>
         public string OrderDescription { get; set; }
 
         /// <summary>
         /// A reference to this checkout in your systems. Your order reference ID must be unique identifier, and may only contain ‘a-Z’, '0-9’, ’-’, and ’_’.
         /// </summary>
+        /// <remarks>Required</remarks>
         public string OrderReferenceId { get; set; }
 
         /// <summary>
         /// The URL we should redirect the customer to in the case of a cancellation
         /// </summary>
+        /// <remarks>Required</remarks>
         public String CheckoutCancelUrl { get; set; }
 
         /// <summary>
         /// The URL we should redirect to in the case of a successful checkout
         /// </summary>
+        /// <remarks>Required</remarks>
         public String CheckoutCompleteUrl { get; set; }
 
         /// <summary>
@@ -45,6 +51,7 @@ namespace SixFourThree.SezzleSharp.Models
         /// <summary>
         /// The billing address of the checkout
         /// </summary>
+        /// <remarks>Required</remarks>
         public Address BillingAddress { get; set; }
 
         /// <summary>

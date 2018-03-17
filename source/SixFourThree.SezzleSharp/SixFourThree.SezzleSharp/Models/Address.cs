@@ -46,5 +46,17 @@ namespace SixFourThree.SezzleSharp.Models
         /// The 2 character country code
         /// </summary>
         public string PhoneNumber { get; set; }
+
+        public Address() { }
+
+        public Address(string name, string street, string city, string state, string postalCode, string countryCode)
+        {
+            Name = name;
+            Street = street;
+            City = city;
+            State = state;
+            PostalCode = postalCode;
+            CountryCode = countryCode;
+        }
     }
 }
