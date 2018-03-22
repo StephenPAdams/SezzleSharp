@@ -26,5 +26,13 @@ namespace SixFourThree.SezzleSharp.Models
         /// The price
         /// </summary>
         public Price Price { get; set; }
+
+        public Item(string name, string sku, int quantity, Price price)
+        {
+            Name = name;
+            Sku = sku;
+            Quantity = quantity;
+            Price = price;
+        }
     }
 }

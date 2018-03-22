@@ -16,5 +16,11 @@ namespace SixFourThree.SezzleSharp.Models
         /// Currency code
         /// </summary>
         public string Currency { get; set; }
+
+        public Price(long amountInCents, string currency)
+        {
+            AmountInCents = amountInCents;
+            Currency = currency;
+        }
     }
 }
