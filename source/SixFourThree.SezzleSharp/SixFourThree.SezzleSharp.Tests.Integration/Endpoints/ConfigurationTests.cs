@@ -11,27 +11,8 @@ using SixFourThree.SezzleSharp.Models.Responses;
 
 namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
 {
-    public class ConfigurationTests
+    public class ConfigurationTests : BaseTests
     {
-        public AuthResponse AuthResponse { get; set; }
-        public SezzleConfig SezzleConfig { get; set; }
-
-        [SetUp]
-        public async Task Setup()
-        {
-            // TODO: Make a base setup method and an inheritable class for endpoint driven tests
-
-            var appSettings = ConfigurationManager.AppSettings;
-
-            var publicKey = appSettings["SezzleApiPublicKey"];
-            var privateKey = appSettings["SezzleApiPrivateKey"];
-
-            SezzleConfig = new SezzleConfig(publicKey, privateKey, true);
-            var auth = new Auth(SezzleConfig);
-
-            AuthResponse = await auth.RequestToken();
-        }
-
         [Test]
         public async Task CanUpdateConfiguration()
         {

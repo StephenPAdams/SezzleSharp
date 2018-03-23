@@ -12,25 +12,8 @@ using SixFourThree.SezzleSharp.Models.Responses;
 namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
 {
     [TestFixture]
-    public class CheckoutsTests
+    public class CheckoutsTests : BaseTests
     {
-        public AuthResponse AuthResponse { get; set; }
-        public SezzleConfig SezzleConfig { get; set; }
-
-        [SetUp]
-        public async Task Setup()
-        {
-            var appSettings = ConfigurationManager.AppSettings;
-
-            var publicKey = appSettings["SezzleApiPublicKey"];
-            var privateKey = appSettings["SezzleApiPrivateKey"];
-
-            SezzleConfig = new SezzleConfig(publicKey, privateKey, true);
-            var auth = new Auth(SezzleConfig);
-
-            AuthResponse = await auth.RequestToken();
-        }
-
         [Test]
         public async Task CanCreateACheckoutWithoutMerchantCompletes()
         {
@@ -128,8 +111,8 @@ namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
         [Test]
         public async Task CanCompleteACheckoutWithMerchantCompletes()
         {
-            // TODO: 
-            var orderReferenceId = "636573728070321239";
+            // TODO: Mark this test as ignored and require a parameter to send the order reference id into it
+            var orderReferenceId = "";
             var checkouts = new Checkouts(SezzleConfig, AuthResponse);
 
             // Now let's try completing it
