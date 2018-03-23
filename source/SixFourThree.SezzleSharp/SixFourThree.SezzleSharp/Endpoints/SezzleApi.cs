@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using SixFourThree.SezzleSharp.Exceptions;
 using SixFourThree.SezzleSharp.Models.Responses;
 
 namespace SixFourThree.SezzleSharp.Endpoints
@@ -39,26 +40,26 @@ namespace SixFourThree.SezzleSharp.Endpoints
         /// <summary>
         /// Asserts if the user is authenticated.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">You are not authenticated</exception>
+        /// <exception cref="NotAuthenticatedException">You are not authenticated</exception>
         protected void AssertIsAuthenticated()
         {
             if (AuthResponse == null || String.IsNullOrWhiteSpace(AuthResponse.Token))
             {
-                throw new InvalidOperationException("You are not authenticated");
+                throw new NotAuthenticatedException("You are not authenticated");
             }
         }
 
         /// <summary>
         /// Asserts if the token is expired.
         /// </summary>
-        /// <exception cref="System.InvalidOperationException">Token is expired</exception>
+        /// <exception cref="ExpiredTokenException">Token is expired</exception>
         protected void AssertTokenExpired()
         {
             var now = DateTime.UtcNow;
 
             if (AuthResponse != null && AuthResponse.ExpirationDate < now)
             {
-                throw new InvalidOperationException("Token is expired");
+                throw new ExpiredTokenException("Token is expired");
             }
         }
 

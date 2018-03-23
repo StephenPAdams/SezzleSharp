@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using NUnit.Framework;
@@ -128,14 +129,15 @@ namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
         public async Task CanCompleteACheckoutWithMerchantCompletes()
         {
             // TODO: 
-            var orderReferenceId = "636573573394340036";
+            var orderReferenceId = "636573728070321239";
             var checkouts = new Checkouts(SezzleConfig, AuthResponse);
 
             // Now let's try completing it
             var completeResponse = await checkouts.Complete(orderReferenceId);
 
             // Per Sezzle, an empty response body is success
-            Assert.IsNull(completeResponse);            
+            Assert.IsNotNull(completeResponse);
+            Assert.AreEqual(HttpStatusCode.OK, completeResponse.HttpStatusCode);
         }
     }
 }

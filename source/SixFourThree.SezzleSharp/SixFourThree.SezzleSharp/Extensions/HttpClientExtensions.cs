@@ -11,10 +11,7 @@ namespace SixFourThree.SezzleSharp.Extensions
 {
     internal static class HttpClientExtensions
     {
-        private const string RateLimitRemainingHeader = "X-Ratelimit-Remaining";
-        private const string RateLimitHeader = "X-Ratelimit-Limit";
-
-        public static async Task<T> ExecuteAsync<T>(this HttpClient client, HttpRequestMessage request)
+        public static async Task<T> ExecuteAsync<T>(this HttpClient client, HttpRequestMessage request) where T: Response, new()
         {
             var response = await client.SendAsync(request);
 
@@ -28,25 +25,10 @@ namespace SixFourThree.SezzleSharp.Extensions
 
             var endpointResponse = result as Response;
 
-            if (endpointResponse != null)
+            if (endpointResponse == null)
             {
-                if (response.Headers.Contains(RateLimitHeader))
-                {
-                    endpointResponse.RateLimitLimit =
-                        response.Headers
-                            .GetValues(RateLimitHeader)
-                            .Select(int.Parse)
-                            .SingleOrDefault();
-                }
-
-                if (response.Headers.Contains(RateLimitRemainingHeader))
-                {
-                    endpointResponse.RateLimitRemaining =
-                        response.Headers
-                            .GetValues(RateLimitRemainingHeader)
-                            .Select(int.Parse)
-                            .SingleOrDefault();
-                }
+                // Some calls from Sezzle return the HTTP status code in the body...some opt for an empty body but instead return it in the header.
+                result = new T { HttpStatusCode = response.StatusCode, Status = (int) response.StatusCode, Message = response.ReasonPhrase };
             }
 
             return result;

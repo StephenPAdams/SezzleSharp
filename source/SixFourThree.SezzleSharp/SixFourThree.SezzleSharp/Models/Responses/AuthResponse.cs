@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace SixFourThree.SezzleSharp.Models.Responses
 {
-    public class AuthResponse
+    public class AuthResponse : Response
     {
         public string Token { get; set; }
 

@@ -72,7 +72,7 @@ namespace SixFourThree.SezzleSharp.Endpoints
 
             var request = Request("{order-reference-id}/complete", HttpMethod.Post);
             request.AddUrlSegment("order-reference-id", orderReferenceId);
-
+            
             return Client.ExecuteAsync<CheckoutCompleteResponse>(request);
         }
     }
