@@ -8,6 +8,7 @@
     <RepositoryType>Git</RepositoryType>
     <Description>A Sezzle C# SDK</Description>
     <PackageTags>Sezzle SDK C#</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
