@@ -15,4 +15,4 @@ This library is still in development. This SDK will wire up the following endpoi
 
 In addition, there will be appropriate model(s) for the Order Webhook format that is supported by the Sezzle Pay API. 
 
-*Pending Sezzle developer support giving information regarding why the shipping address isn't being populated on the ORders (Details) call. Need to ensure it's being saved on checkout create appropriately.
+*Pending Sezzle developer support giving information regarding why the shipping address isn't being populated on the Orders (Details) call. Need to ensure it's being saved on checkout create appropriately.
