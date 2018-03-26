@@ -1,6 +1,8 @@
 # SezzleSharp
 A Sezzle C# SDK
 
+[![Build status](https://ci.appveyor.com/api/projects/status/5yixr8hm3n33ej67?svg=true)](https://ci.appveyor.com/project/StephenPAdams/sezzlesharp)
+
 This library is still in development. This SDK will wire up the following endpoints and features from the Sezzle Pay API:
 
 * Authentication POST https://gateway.sezzle.com/v1/authentication - DONE
