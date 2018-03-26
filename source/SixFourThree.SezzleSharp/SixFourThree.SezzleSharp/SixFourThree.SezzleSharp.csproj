@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Stephen Adams</Authors>
+    <Company>643 Labs</Company>
+    <RepositoryUrl>https://github.com/StephenPAdams/SezzleSharp</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <Description>A Sezzle C# SDK</Description>
+    <PackageTags>Sezzle SDK C#</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
