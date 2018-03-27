@@ -14,7 +14,8 @@ nuget:
 before_build:
 - cmd: nuget restore source\SixFourThree.SezzleSharp\SixFourThree.SezzleSharp.sln
 build:
-  verbosity: minimal
+  verbosity: minimal  
+  publish_nuget: true             # package projects with .nuspec files and push to artifacts
 test: off
 deploy:
   provider: NuGet
