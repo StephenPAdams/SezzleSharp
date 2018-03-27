@@ -11,6 +11,9 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Version>1.0.0</Version>
     <PackageVersion>1.0.0</PackageVersion>
+    <PackageIconUrl>https://raw.githubusercontent.com/StephenPAdams/SezzleSharp/master/sezzle_sharp_logo_trans.png</PackageIconUrl>
+    <PackageProjectUrl>https://github.com/StephenPAdams/SezzleSharp</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/StephenPAdams/SezzleSharp/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
 
   <ItemGroup>
