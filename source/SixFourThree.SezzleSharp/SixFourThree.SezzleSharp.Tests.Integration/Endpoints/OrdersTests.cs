@@ -22,13 +22,14 @@ namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
         public async Task CanGetOrderDetailsWithoutShipping()
         {
             // TODO: Ignore and find a way to pipe in a valid order reference id
-            var orderReferenceId = "636573728070321239";
+            var orderReferenceId = "636773935603630168";
             var orders = new Orders(SezzleConfig, AuthResponse);
 
             var orderDetails = await orders.Get(orderReferenceId, false);
             Console.WriteLine(JsonConvert.SerializeObject(orderDetails, Formatting.Indented));
 
             Assert.IsNotNull(orderDetails);
+            Assert.IsNotNull(orderDetails.Customer);
             Assert.IsNull(orderDetails.ShippingAddress);
         }
 
@@ -40,13 +41,14 @@ namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
         public async Task CanGetOrderDetailsWithShipping()
         {
             // TODO: Ignore and find a way to pipe in a valid order reference id
-            var orderReferenceId = "636573728070321239";
+            var orderReferenceId = "636773940180888141";
             var orders = new Orders(SezzleConfig, AuthResponse);
 
             var orderDetails = await orders.Get(orderReferenceId, true);
             Console.WriteLine(JsonConvert.SerializeObject(orderDetails, Formatting.Indented));
 
             Assert.IsNotNull(orderDetails);
+            Assert.IsNotNull(orderDetails.Customer);
             Assert.IsNotNull(orderDetails.ShippingAddress);
         }
 
@@ -58,7 +60,7 @@ namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
         public async Task CanRefundOrderFully()
         {
             // TODO: Ignore and find a way to pipe in a valid order reference id
-            var orderReferenceId = "636573728070321239";
+            var orderReferenceId = "636773935603630168";
             var orders = new Orders(SezzleConfig, AuthResponse);
             var refundReason = "Customer returned item.";
             var refundId = Guid.NewGuid().ToString();
@@ -84,7 +86,7 @@ namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
         public async Task CanRefundOrderPartially()
         {
             // TODO: Ignore and find a way to pipe in a valid order reference id
-            var orderReferenceId = "636573728070321239";
+            var orderReferenceId = "636773928435687781";
             var orders = new Orders(SezzleConfig, AuthResponse);
             var price = new Price(500, "USD");
             var refundReason = "Customer returned item damaged.";

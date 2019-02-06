@@ -15,3 +15,6 @@ This library is still in development. This SDK will wire up the following endpoi
 * Order Webhook modeling - PENDING TESTS
 
 *Pending Sezzle developer support giving information regarding why the shipping address isn't being populated on the Orders (Details) call. Need to ensure it's being saved on checkout create appropriately.
+
+# Sandbox
+For more information about the Sezzle sandbox, please see documentation located here: https://docs.sezzle.com/#sandbox

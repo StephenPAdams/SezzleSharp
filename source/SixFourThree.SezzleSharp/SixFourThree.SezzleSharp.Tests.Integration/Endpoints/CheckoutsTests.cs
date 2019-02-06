@@ -34,6 +34,7 @@ namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
             checkout.BillingAddress = new Address("TestFirst TestLast", "1516 W. Lake St", "Minneapolis", "MN", "55408", "US");
             checkout.ShippingAddress = new Address("TestFirst TestLast", "1516 W. Lake St", "Minneapolis", "MN", "55408", "US");
             checkout.Items = new List<Item> {new Item("Test T-Shirt", "ABC123", 1, new Price(amount, currencyCode))};
+            checkout.RequiresShippingInfo = false;
 
             var checkoutResponse = await checkouts.Post(checkout);
 
@@ -79,6 +80,7 @@ namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
             checkout.ShippingAddress = new Address("TestFirst TestLast", "1516 W. Lake St", "Minneapolis", "MN", "55408", "US");
             checkout.Items = new List<Item> { new Item("Test T-Shirt", "ABC123", 1, new Price(amount, currencyCode)) };
             checkout.MerchantCompletes = true;
+            checkout.RequiresShippingInfo = false;
 
             var checkoutResponse = await checkouts.Post(checkout);
 
@@ -112,7 +114,7 @@ namespace SixFourThree.SezzleSharp.Tests.Integration.Endpoints
         public async Task CanCompleteACheckoutWithMerchantCompletes()
         {
             // TODO: Mark this test as ignored and require a parameter to send the order reference id into it
-            var orderReferenceId = "";
+            var orderReferenceId = "636773928435687781";
             var checkouts = new Checkouts(SezzleConfig, AuthResponse);
 
             // Now let's try completing it

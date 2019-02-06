@@ -83,5 +83,10 @@ namespace SixFourThree.SezzleSharp.Models
         /// Optional flag to determine whether this checkout must be completed by the merchant.
         /// </summary>
         public bool MerchantCompletes { get; set; }
+
+        /// <summary>
+        /// Optional flag to indicate if you would like us to collect shipping information for this checkout from the customer
+        /// </summary>
+        public bool RequiresShippingInfo { get; set; }
     }
 }

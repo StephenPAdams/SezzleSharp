@@ -11,6 +11,7 @@ namespace SixFourThree.SezzleSharp.Models.Responses
         public long UsdAmountICents { get; set; }
         public string CurrencyCode { get; set; }
         public string ReferenceId { get; set; }
+        public CustomerDetails Customer { get; set; }
         public Address ShippingAddress { get; set; }
     }
 }
