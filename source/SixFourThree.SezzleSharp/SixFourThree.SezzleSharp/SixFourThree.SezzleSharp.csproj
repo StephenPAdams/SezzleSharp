@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard1.3</TargetFrameworks>
     <Authors>Stephen Adams</Authors>
     <Company>643 Labs</Company>
     <RepositoryUrl>https://github.com/StephenPAdams/SezzleSharp</RepositoryUrl>
@@ -21,7 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" Condition="'$(TargetFramework)' == 'netstandard2.0'"/>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" Condition="'$(TargetFramework)' == 'netstandard1.3'"/>
   </ItemGroup>
 
 </Project>
